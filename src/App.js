@@ -2,23 +2,26 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { FormGroup, FormControl, Label } from "react-bootstrap";
+import Button from "./components/Button";
+import Counter from "./components/Counter";
 let object = {
   width: 200,
   height: 500,
-  margin: 10
+  backgroundColor: ""
 };
 
 const onClick = function() {
-  alert("Hello");
+  console.log("Hello");
 };
 const onEnter = function() {
-  alert("Hello Enter");
+  console.log("Hello Enter");
 };
 
 class App extends Component {
   constructor(props) {
     super(props);
-    // console.log(props.test); initial ptop
+    console.log("Test Props", props.test);
+
     this.state = {
       name: props.name,
       forms: [
@@ -38,40 +41,53 @@ class App extends Component {
           label: "Phone number",
           input: { onClick: onEnter, value: "", placeholder: "Enter an number" }
         }
-      ]
+      ],
+      count: 0
     };
   }
-  // componentWillMount
+
   onChange = e => {
-    let value = e.target.value;
-    this.setState({
-      name: value
-    });
+    this.setState({ name: e.target.value });
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("Update name state in Should Update", this.state.name);
-    console.log("Next name state in Should Update", nextState);
+    // console.log("shouldComponentUpdate", this.state.name);
+    // console.log("nextProps", nextState.name);
     return true;
   }
-  componentWillUpdate(nextProps, nextState) {
-    console.log("Update name state in Should Update", this.state.name);
-    console.log("Next name state in Should Update", this.state.name);
-    return true;
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log("Update State", this.state.name);
-    console.log("Update State", this.state.name);
-  }
-  render() {
-    console.log("Render State", this.state.name);
 
+  componentWillUpdate(nextProps, nextState) {
+    // console.log("shouldComponentUpdate", this.state.name);
+    // console.log("nextProps", nextState.name);
+    return true;
+  }
+
+  componentDidUpdate(prevProps, nextState) {
+    // console.log("componentDidUpdate", this.state.name);
+    // console.log("prevProps", nextState.name);
+  }
+
+  onCount = () => {
+    let oldCounter = this.state.count;
+    this.setState({ count: ++oldCounter });
+    console.log(this.state.count);
+  };
+
+  render() {
+    console.log("render", this.state.name);
     return (
       <FormGroup className="App" style={object}>
+        <Button count={this.state.count} onAdd={this.onCount} />
+        <br />
+        <Label>{this.state.count}</Label>
+        <br />
+        <Counter count={this.state.count} />
         {this.state.forms.map((forms, index) => {
           return (
             <React.Fragment key={index}>
-              <Label>{forms.label + " " + this.state.name} </Label>
+              <Label bsStyle="info">
+                {forms.label + " " + this.state.name}
+              </Label>
               <FormControl
                 {...forms.input}
                 value={this.state.name}
