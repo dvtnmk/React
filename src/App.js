@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
+import { FormGroup, FormControl, Label } from "react-bootstrap";
 let object = {
   width: 200,
   height: 500,
@@ -18,7 +18,7 @@ const onEnter = function() {
 let forms = [
   {
     label: "Email",
-    input: { value: "", placeholder: "Enter an Email" }
+    input: { type: "email", value: "", placeholder: "Enter an Email" }
   },
   {
     label: "First name",
@@ -30,30 +30,22 @@ let forms = [
   },
   {
     label: "Phone number",
-    input: { value: "", placeholder: "Enter an number" }
+    input: { onClick: onEnter, value: "", placeholder: "Enter an number" }
   }
 ];
 class App extends Component {
   render() {
     return (
-      // syntax style : style={}
-      <div
-        className="App"
-        style={object}
-        // onClick={onClick}
-        // onMouseEnter={onEnter}
-        // onMouseOver={onEnter}
-      >
+      <FormGroup className="App" style={object}>
         {forms.map(function(forms) {
           return (
-            <div>
+            <React.Fragment>
               <label>{forms.label}</label>
-              <input value={forms.input.placeholder} />
-            </div>
+              <FormControl {...forms.input} />
+            </React.Fragment>
           );
         })}
-        <div />
-      </div>
+      </FormGroup>
     );
   }
 }
