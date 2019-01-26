@@ -7,10 +7,20 @@ class Counter extends Component {
       label: props.label || 0
     };
   }
-
+  componentDidUpdate = prevProp => {
+    if (prevProp.label !== this.props.label) {
+      const { label } = this.props;
+      this.setState({ label });
+    }
+  };
   render() {
     const { label } = this.state;
-    return <span>{label}</span>;
+    return (
+      <div>
+        <span>{label}</span>
+        <br />
+      </div>
+    );
   }
 }
 
