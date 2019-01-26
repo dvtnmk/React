@@ -4,11 +4,14 @@ import { ButtonStyled } from "./styled";
 class Button extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      count: props.count
+    };
   }
 
   render() {
-    return <ButtonStyled>Count</ButtonStyled>;
+    const { count } = this.state; // destructuring
+    return <ButtonStyled>Count {count}</ButtonStyled>;
   }
 }
 
