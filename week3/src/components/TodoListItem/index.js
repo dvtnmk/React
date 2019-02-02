@@ -37,12 +37,10 @@ class TodoListItem extends Component {
     const { todo } = this.state;
     return (
       <TodoItemWrapper>
-        <TodoItemMessage>
-          {todo.id} >> {todo.message}
-        </TodoItemMessage>
+        <TodoItemMessage>{todo.message}</TodoItemMessage>
         <TodoItemActionWrapper>
           <ActionButton
-            editable={true}
+            editable={false}
             onEdit={this.onEditItem}
             onRemove={this.onRemoveItem}
           />

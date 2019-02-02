@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import MyInput from "../MyInput";
 import TodoListItem from "../TodoListItem";
 import { TodoListWrapper } from "./styled";
@@ -17,8 +18,9 @@ const renderTodoItem = (todos, handleEdit, handleRemove) => {
 class TodoList extends Component {
   constructor(props) {
     super(props);
+    const { defaultTodoText = "" } = props;
     this.state = {
-      message: "",
+      message: defaultTodoText,
       todos: []
     };
   }
