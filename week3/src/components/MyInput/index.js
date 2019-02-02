@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { MyInputStyled, MyInputWrapper, ClearButton } from "./MyInputStyled";
 
 class MyInput extends Component {
@@ -12,5 +13,17 @@ class MyInput extends Component {
     );
   }
 }
+
+MyInput.defaultProps = {
+  value: "",
+  onClear: () => {},
+  onChange: () => {}
+};
+
+MyInput.PropTypes = {
+  value: PropTypes.string.isRequired,
+  onClear: PropTypes.func,
+  onChange: PropTypes.func
+};
 
 export default MyInput;
