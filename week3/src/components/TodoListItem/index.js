@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { TodoItemWrapper } from "./styled";
+import {
+  TodoItemWrapper,
+  TodoItemMessage,
+  TodoItemActionWrapper
+} from "./styled";
+import ActionButton from "../ActionComponent";
 class TodoListItem extends Component {
   constructor(props) {
     super(props);
@@ -12,12 +17,20 @@ class TodoListItem extends Component {
   componentDidUpdate = prevProps => {
     if (prevProps.todo !== this.props.todo) {
       const { todo } = this.props;
-      this.setstate({ todo });
+      this.setState({ todo });
     }
   };
+
   render() {
     const { todo } = this.state;
-    return <TodoItemWrapper>{todo.message}</TodoItemWrapper>;
+    return (
+      <TodoItemWrapper>
+        <TodoItemMessage>{todo.message}</TodoItemMessage>
+        <TodoItemActionWrapper>
+          <ActionButton />
+        </TodoItemActionWrapper>
+      </TodoItemWrapper>
+    );
   }
 }
 
@@ -34,4 +47,5 @@ TodoListItem.propTypes = {
     message: PropTypes.string
   })
 };
+
 export default TodoListItem;

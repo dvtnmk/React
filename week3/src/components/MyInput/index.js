@@ -12,12 +12,12 @@ class MyInput extends Component {
     const { value, onClear, onChange } = this.props;
     return (
       <MyInputWrapper>
-        <ClearButton onClick={onClear}>clear</ClearButton>
         <MyInputStyled
           value={value}
           onChange={onChange}
           onKeyDown={this.onEnter}
         />
+        <ClearButton onClick={onClear}>clear</ClearButton>
       </MyInputWrapper>
     );
   }
