@@ -3,8 +3,15 @@ import MyInput from "../MyInput";
 import TodoListItem from "../TodoListItem";
 import { TodoListWrapper } from "./styled";
 
-const renderTodoItem = todos => {
-  return todos.map((todo, i) => <TodoListItem key={i} todo={todo} />);
+const renderTodoItem = (todos, handleEdit, handleRemove) => {
+  return todos.map((todo, i) => (
+    <TodoListItem
+      key={i}
+      todo={todo}
+      handleEdit={handleEdit}
+      handleRemove={handleRemove}
+    />
+  ));
 };
 
 class TodoList extends Component {
@@ -32,12 +39,35 @@ class TodoList extends Component {
       todos: [
         ...todos,
         {
-          id: todos.length,
+          id: btoa(new Date().getTime().toString()),
           message
         }
       ]
     }));
     this.clearMessage();
+  };
+
+  removeById = id => {
+    const { todos } = this.state;
+    const newTodos = todos.filter(todo => todo.id !== id);
+    this.setState({ todos: newTodos });
+  };
+
+  editById = id => {
+    const { todos } = this.state;
+    let findIndex = null;
+    const editTodo = todos.find((todo, index) => {
+      if (todo.id === id) {
+        findIndex = index;
+        return true;
+      }
+      return false;
+    });
+    const editMessage = prompt("Edit this todo", editTodo.message);
+    editTodo.message = editMessage;
+    const newTodos = [...todos];
+    newTodos[findIndex] = editTodo;
+    this.setState({ todos: newTodos });
   };
 
   render() {
@@ -50,7 +80,7 @@ class TodoList extends Component {
           onChange={this.handleMessage}
           onEnter={this.onPushTodo}
         />
-        {renderTodoItem(todos)}
+        {renderTodoItem(todos, this.editById, this.removeById)}
       </TodoListWrapper>
     );
   }

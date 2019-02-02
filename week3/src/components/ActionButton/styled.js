@@ -9,8 +9,12 @@ const ButtonWrapper = styled.div`
   align-items: center;
 `;
 
-const EditButton = () => <FontAwesomeIcon icon={faEdit} size="2x" />;
+const EditButton = props => (
+  <FontAwesomeIcon icon={faEdit} {...props} size="2x" />
+);
 
-const RemoveButton = () => <FontAwesomeIcon icon={faEraser} size="2x" />;
+const RemoveButton = props => (
+  <FontAwesomeIcon icon={faEraser} {...props} size="2x" />
+);
 
 export { ButtonWrapper, EditButton, RemoveButton };

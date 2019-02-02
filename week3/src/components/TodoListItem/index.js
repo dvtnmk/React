@@ -5,7 +5,7 @@ import {
   TodoItemMessage,
   TodoItemActionWrapper
 } from "./styled";
-import ActionButton from "../ActionComponent";
+import ActionButton from "../ActionButton";
 class TodoListItem extends Component {
   constructor(props) {
     super(props);
@@ -21,13 +21,31 @@ class TodoListItem extends Component {
     }
   };
 
+  onRemoveItem = () => {
+    const { todo } = this.state;
+    const { handleRemove } = this.props;
+    handleRemove(todo.id);
+  };
+
+  onEditItem = () => {
+    const { todo } = this.state;
+    const { handleEdit } = this.props;
+    handleEdit(todo.id);
+  };
+
   render() {
     const { todo } = this.state;
     return (
       <TodoItemWrapper>
-        <TodoItemMessage>{todo.message}</TodoItemMessage>
+        <TodoItemMessage>
+          {todo.id} >> {todo.message}
+        </TodoItemMessage>
         <TodoItemActionWrapper>
-          <ActionButton />
+          <ActionButton
+            editable={true}
+            onEdit={this.onEditItem}
+            onRemove={this.onRemoveItem}
+          />
         </TodoItemActionWrapper>
       </TodoItemWrapper>
     );
@@ -43,7 +61,7 @@ TodoListItem.defaultProps = {
 
 TodoListItem.propTypes = {
   todo: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     message: PropTypes.string
   })
 };
