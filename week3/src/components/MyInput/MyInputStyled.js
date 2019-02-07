@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 const borderColor = "#e8e8e8";
 const bgColor = "#f1f1f1";
 const MyInputStyled = styled.input`

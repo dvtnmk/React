@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import MyInput from "../MyInput";
 import TodoListItem from "../TodoListItem";
 import { TodoListWrapper } from "./styled";
+import ClearAllButton from "../ClearAllButton";
 
 const renderTodoItem = (todos, handleEdit, handleRemove) => {
   return todos.map((todo, i) => (
@@ -49,6 +50,11 @@ class TodoList extends Component {
     this.clearMessage();
   };
 
+  removeAll = e => {
+    const newTodos = [];
+    this.setState({ todos: newTodos });
+  };
+
   removeById = id => {
     const { todos } = this.state;
     const newTodos = todos.filter(todo => todo.id !== id);
@@ -76,6 +82,7 @@ class TodoList extends Component {
     const { message, todos } = this.state;
     return (
       <TodoListWrapper>
+        <ClearAllButton onClear={this.removeAll} />
         <MyInput
           value={message}
           onClear={this.clearMessage}

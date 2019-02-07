@@ -8,6 +8,7 @@ class MyInput extends Component {
       this.props.onEnter();
     }
   };
+
   render() {
     const { value, onClear, onChange } = this.props;
     return (
