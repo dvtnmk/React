@@ -14,3 +14,5 @@ function AddFriend(props) {
     </div>
   );
 }
+
+export default AddFriend;

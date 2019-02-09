@@ -1,5 +1,5 @@
 const actionTypes = {
-  ADD_FRIED: "ADD_FRIEND"
+  ADD_FRIEND: "ADD_FRIEND"
 };
 
 const addFriend = dispatch => (friendId, targetFriendId) => {
@@ -8,4 +8,5 @@ const addFriend = dispatch => (friendId, targetFriendId) => {
     payload: { friendId, targetFriendId }
   });
 };
+
 export { actionTypes, addFriend };

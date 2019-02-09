@@ -1,29 +1,26 @@
 import React, { Component } from "react";
-import Counter from "../../components/Counter";
-import CounterHook from "../../components/CounterHook";
 import { connect } from "react-redux";
 import { addFriend } from "../../stores/actions";
-import { from } from "rxjs";
+import AddFriend from "../../components/AddFriend";
 class AppContainer extends Component {
-  componentDidMount = () => {
-    setTimeout(() => {
-      this.setState({ hide: true });
-    }, 2000);
-  };
+  state = { hide: false };
+  componentDidMount = () => {};
 
   componentDidUpdate = () => {
     const { friend } = this.props;
     console.log("Friend", friend);
   };
+
+  onAddFriend = (friendId, targetFriendId) => {
+    const { addFriend } = this.props;
+    addFriend(friendId, targetFriendId);
+  };
+
   render() {
+    const { hide } = this.state;
     return (
       <div>
-        <span>No hook</span>
-        <Counter />
-        <br />
-        <br />
-        <span>With Hook</span>
-        <CounterHook />
+        <AddFriend onAddFriend={this.onAddFriend} />
       </div>
     );
   }
@@ -31,12 +28,13 @@ class AppContainer extends Component {
 
 const mapStateToProps = ({ friend }) => ({ friend });
 
-const mapDispachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
     addFriend: addFriend(dispatch)
   };
 };
+
 export default connect(
   mapStateToProps,
-  mapDispachToProps
+  mapDispatchToProps
 )(AppContainer);
