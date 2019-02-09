@@ -1,3 +1,3 @@
 import friend from "./friend";
 
-export { friend };
+export default { friend };
