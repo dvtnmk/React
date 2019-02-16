@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 //env เป็น evironment เช่น Prod,Uat
 //args คือ module ที่โยนเข้ามา
 module.exports = (env, args) => {
@@ -8,8 +9,8 @@ module.exports = (env, args) => {
     entry: "./index.js", //ถ้ามี file เดียวหมายถึงว่าให้ bundle เข้าไปที่ file นั้นๆก่อน
     output: {
       filename: "app.js", //'[name].js',//จะเอาชื่อของ entry(bundle file) เข้ามาแทน [name]
-      path: path.resolve(__dirname, "../build"), //dirname จะได้root path//output path ที่ให้ bundle ไปวาง
-      publicPath: "../public/" //Folder ที่ user สามารถเข้าถึง website ได้โดยตรง
+      path: path.join(__dirname, "../build"), //dirname จะได้root path//output path ที่ให้ bundle ไปวาง
+      publicPath: "/" //Folder ที่ user สามารถเข้าถึง website ได้โดยตรง
     },
     //จุดที่บอกว่า webpack ต้องรู้จักอะไรบ้าง
     module: {
@@ -41,6 +42,17 @@ module.exports = (env, args) => {
           }
         }
       ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: path.join(__dirname, "../public/index.html")
+      })
+    ],
+    devServer: {
+      contentBase: path.join(__dirname, "../public"),
+      hot: true,
+      inline: true,
+      port: 3000
     }
   };
 };

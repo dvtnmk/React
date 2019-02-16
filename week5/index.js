@@ -6,4 +6,4 @@ function App() {
 }
 
 const selector = document.querySelector("#app");
-ReactDOM(<App />, selector);
+ReactDOM.render(<App />, selector);
