@@ -17,7 +17,7 @@ module.exports = (env, args) => {
       rules: [
         {
           test: /\.(jsx?)$/, //ต้องใช้ regex เท่านั้น เพราะไม่รู้จัก file extension
-          exclude: /node_modules/, //ให้เอา node module ออก
+          exclude: [/node_modules/, /\.stories/, /storybook/], //ให้เอา node module ออก
           loader: "babel-loader",
           //   use: [
           //     //ถ้าเจอ jsx js จะใช้ตาม package ตามด้านล่าง
@@ -40,6 +40,11 @@ module.exports = (env, args) => {
               "@babel/preset-react" //การทำงานจะทำจากล่างขึ้นบน
             ]
           }
+        },
+        {
+          test: /\.(css)$/,
+          exclude: /node_modules/,
+          use: ["style-loader", "css-loader"]
         }
       ]
     },

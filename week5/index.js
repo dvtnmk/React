@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-
+import Button from "./src/components/Button";
 function App() {
-  return <h1>Hello react</h1>;
+  return <Button children="Test" />;
 }
 
 const selector = document.querySelector("#app");
