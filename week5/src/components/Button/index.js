@@ -11,9 +11,10 @@ function selectClass(color) {
       return "btn";
   }
 }
-function Button({ children, onClick, color }) {
+
+function Button({ children, onClick, color, ...rest }) {
   return (
-    <button className={selectClass(color)} onClick={onClick}>
+    <button className={selectClass(color)} onClick={onClick} {...rest}>
       {children}
     </button>
   );
