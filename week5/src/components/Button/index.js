@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import { Button as AntButton } from "antd";
 
 function selectClass(color) {
   switch (color) {
@@ -16,9 +17,9 @@ function selectClass(color) {
 
 function Button({ children, onClick, color, ...rest }) {
   return (
-    <button className={selectClass(color)} onClick={onClick} {...rest}>
+    <AntButton onClick={onClick} {...rest}>
       {children}
-    </button>
+    </AntButton>
   );
 }
 

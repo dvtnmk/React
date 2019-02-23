@@ -55,12 +55,12 @@ function SignIn() {
         </Row>
         <Row>
           <Col span={12}>
-            <Button color="primary" type="submit">
+            <Button block type="primary" type="submit">
               SignIn
             </Button>
           </Col>
           <Col span={12}>
-            <Button color="green" type="button">
+            <Button block type="primary" type="button">
               SignUp
             </Button>
           </Col>
