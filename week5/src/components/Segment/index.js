@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-
+import { Icon } from "antd";
 function renderActions(actions) {
   return (
     <div className="actionsWrapper">
@@ -12,19 +12,22 @@ function renderActions(actions) {
     </div>
   );
 }
-function Segment({ children, content, title, actions = [] }) {
+function Segment({ children, content, title, actions = [], onClose }) {
   return (
     <div className="segment">
-      <SegmentTitle>{title}</SegmentTitle>
+      <SegmentTitle onClose={onClose}>{title}</SegmentTitle>
       <SegmentContent>{children || content}</SegmentContent>
       {actions.length > -1 && renderActions(actions)}
     </div>
   );
 }
-function SegmentTitle({ children, title = "", ...rest }) {
+function SegmentTitle({ children, title = "", onClose, ...rest }) {
   return (
     <div className="title" {...rest}>
       <span className="titleText">{children || title}</span>
+      <div className="closeButton" onClick={onClose}>
+        <Icon type="close" className="Icon" />
+      </div>
     </div>
   );
 }
