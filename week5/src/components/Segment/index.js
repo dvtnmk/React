@@ -2,14 +2,22 @@ import React from "react";
 import "./styles.scss";
 
 function renderActions(actions) {
-  return actions.map(action => <SegmentAction>{action}</SegmentAction>);
+  return (
+    <div className="actionsWrapper">
+      <div className="container">
+        {actions.map(action => (
+          <SegmentAction>{action}</SegmentAction>
+        ))}
+      </div>
+    </div>
+  );
 }
 function Segment({ children, content, title, actions = [] }) {
   return (
     <div className="segment">
       <SegmentTitle>{title}</SegmentTitle>
       <SegmentContent>{children || content}</SegmentContent>
-      {actions.length > 0 && renderActions(actions)}
+      {actions.length > -1 && renderActions(actions)}
     </div>
   );
 }
@@ -20,19 +28,15 @@ function SegmentTitle({ children, title = "", ...rest }) {
     </div>
   );
 }
-function SegmentContent({ children, content }) {
+function SegmentContent({ children, content = "" }) {
   return (
     <div className="content">
       <div className="container">{(children, content)}</div>
     </div>
   );
 }
-function SegmentAction({ children, content }) {
-  return (
-    <div className="actions">
-      <div className="container">{children || content}</div>
-    </div>
-  );
+function SegmentAction({ children, content = "" }) {
+  return <div className="actionItem">{children || content}</div>;
 }
 
 export { SegmentTitle, SegmentContent, SegmentAction };
