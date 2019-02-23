@@ -7,6 +7,8 @@ function selectClass(color) {
       return "btn primary";
     case "danger":
       return "btn danger";
+    case "green":
+      return "btn green";
     default:
       return "btn";
   }

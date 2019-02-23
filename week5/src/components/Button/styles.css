@@ -17,7 +17,8 @@ button.btn:active {
 }
 
 button.btn.primary,
-button.btn.danger {
+button.btn.danger,
+button.btn.green {
   color: #fff;
 }
 
@@ -29,4 +30,9 @@ button.btn.primary {
 button.btn.danger {
   background-color: rgb(167, 60, 45);
   border: 1px solid rgb(119, 41, 30);
+}
+
+button.btn.green {
+  background-color: #5cb85c;
+  border: 1px solid rgb(48, 114, 4);
 }

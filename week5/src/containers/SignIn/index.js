@@ -47,7 +47,7 @@ function SignIn() {
         <Button color="primary" type="submit">
           SignIn
         </Button>
-        <Button color="primary" type="button">
+        <Button color="green" type="button">
           SignUp
         </Button>
       </form>
