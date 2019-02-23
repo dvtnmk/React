@@ -5,6 +5,7 @@ button.btn {
   outline: none;
   border: 1px solid rgb(139, 139, 139);
   font-size: 0.95em;
+  margin: 10px 5px 10px;
 }
 
 button.btn:hover {
