@@ -1,4 +1,6 @@
+import "antd/dist/antd.css";
 import "./Button";
 import "./Input";
 import "./SignIn";
-import "antd/dist/antd.css";
+import "./SignUp";
+import "./Segment";

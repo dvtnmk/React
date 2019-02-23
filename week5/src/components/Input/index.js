@@ -23,7 +23,7 @@ function Input({
   ...rest
 }) {
   return (
-    <AntInput value={value} onChange={onChange} size="large" />
+    <AntInput value={value} onChange={onChange} size="large" {...rest} />
     // <div style={{ display: inline ? "inline-block" : "block" }}>
     //   {label && <label className="label">{label}</label>}
     //   <input
