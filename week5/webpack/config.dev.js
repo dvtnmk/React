@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = (env, args) => {
   return {
     mode: "development",
+    // devtool:'eval', // ใช้สำหรับdebug
     entry: "./index.js", //ถ้ามี file เดียวหมายถึงว่าให้ bundle เข้าไปที่ file นั้นๆก่อน
     output: {
       filename: "app.js", //'[name].js',//จะเอาชื่อของ entry(bundle file) เข้ามาแทน [name]
@@ -43,8 +44,16 @@ module.exports = (env, args) => {
         },
         {
           test: /\.(css)$/,
-          exclude: /node_modules/,
+          // exclude: /node_modules/,
           use: ["style-loader", "css-loader"]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            "style-loader", // creates style nodes from JS strings
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          ]
         }
       ]
     },
