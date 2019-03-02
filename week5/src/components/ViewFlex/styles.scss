@@ -1,6 +1,9 @@
 .view {
   display: flex;
   flex: 1;
+  .margin {
+    margin-bottom: 13px;
+  }
   .view {
     display: flex;
     flex-shrink: 1;
@@ -10,5 +13,8 @@
   .view.fluid {
     display: flex;
     flex: 1;
+  }
+  &.column {
+    flex-direction: column;
   }
 }

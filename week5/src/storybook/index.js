@@ -7,3 +7,5 @@ import "./TextArea";
 import "./Segment";
 import "./ProfileImage";
 import "./PostSection";
+import "./CapsuleButton";
+import "./CheckBox";

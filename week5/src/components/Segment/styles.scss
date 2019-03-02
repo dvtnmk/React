@@ -29,7 +29,11 @@
   }
   .actionsWrapper {
     background-color: #dcdcdc;
-    .actionItem {
+    .container {
+      flex-direction: column;
+      .actionItem {
+        padding: 5px 0;
+      }
     }
   }
 
