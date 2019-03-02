@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Icon } from "antd";
-function ProfileImage({ src, icon, size = "medium", ...rest }) {
-  if (!/^x[1-10]/.test(size)) {
-    size = "x3";
+function ProfileImage({ src, icon, size = "x4", ...rest }) {
+  if (!/^x([1-9]|10)/.test(size)) {
+    size = "x4";
   }
   const [imageLoaded, setImageLoaded] = useState(null);
   useEffect(() => {
@@ -21,7 +21,7 @@ function ProfileImage({ src, icon, size = "medium", ...rest }) {
       ) : (
         <div className="loading">Loading...</div>
       )}
-      {icon && <div className="icon">{icon || <Icon type="plus" />}</div>}
+      {icon ? <div className="icon">{<Icon type="plus" />}</div> : <div />}
     </div>
   );
 }

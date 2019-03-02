@@ -6,3 +6,4 @@ import "./SignUp";
 import "./TextArea";
 import "./Segment";
 import "./ProfileImage";
+import "./PostSection";
