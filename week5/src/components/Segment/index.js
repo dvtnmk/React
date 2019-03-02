@@ -41,7 +41,7 @@ SegmentTitle.defaultProps = {
 function SegmentContent({ children, content = "" }) {
   return (
     <div className="content">
-      <div className="container">{(children, content)}</div>
+      <div className="container">{children || content}</div>
     </div>
   );
 }

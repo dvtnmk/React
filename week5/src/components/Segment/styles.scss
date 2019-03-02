@@ -22,6 +22,10 @@
   .content {
     background-color: #fdfdfd;
     border-bottom: 2px solid #dcdcdc;
+    .Post {
+      display: flex;
+      flex: 1;
+    }
   }
   .actionsWrapper {
     background-color: #dcdcdc;

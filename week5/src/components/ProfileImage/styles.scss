@@ -6,6 +6,8 @@
   object-position: center;
 }
 .imageWrapper {
+  user-select: none;
+  position: relative;
   .image {
     @extend %image;
   }
@@ -15,6 +17,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .icon {
+    // padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    background-color: rgb(66, 66, 255);
+    right: 0 - (20%/2);
+    bottom: 0 - (20%/2);
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    font-size: 100%;
   }
 }
 
