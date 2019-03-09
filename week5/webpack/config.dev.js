@@ -1,13 +1,14 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+require("@babel/polyfill");
 //env เป็น evironment เช่น Prod,Uat
 //args คือ module ที่โยนเข้ามา
 module.exports = (env, args) => {
   return {
     mode: "development",
     // devtool:'eval', // ใช้สำหรับdebug
-    entry: "./index.js", //ถ้ามี file เดียวหมายถึงว่าให้ bundle เข้าไปที่ file นั้นๆก่อน
+    entry: ["@babel/polyfill", "./index.js"], //ถ้ามี file เดียวหมายถึงว่าให้ bundle เข้าไปที่ file นั้นๆก่อน
     output: {
       filename: "app.js", //'[name].js',//จะเอาชื่อของ entry(bundle file) เข้ามาแทน [name]
       path: path.join(__dirname, "../build"), //dirname จะได้root path//output path ที่ให้ bundle ไปวาง
