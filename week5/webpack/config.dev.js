@@ -67,7 +67,8 @@ module.exports = (env, args) => {
       contentBase: path.join(__dirname, "../public"),
       hot: true,
       inline: true,
-      port: 3000
+      port: 3000,
+      historyApiFallback: true //ใช้สำหรับบอกว่าถ้าไม่สามารถเข้าถึง api บาง path ได้จะ callback ไปที่ login
     },
     resolve: {
       modules: ["node_modules", path.resolve(__dirname, "../src")]

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { usePreload } from "helpers/util";
 import "./styles.scss";
 import { Icon } from "antd";
 function ProfileImage({ src, icon, size = "x4", ...rest }) {
@@ -7,12 +8,11 @@ function ProfileImage({ src, icon, size = "x4", ...rest }) {
   }
   const [imageLoaded, setImageLoaded] = useState(null);
   useEffect(() => {
-    const image = new Image();
-    image.src = src;
-    image.onload = () => {
-      setImageLoaded(src);
-    };
-    image.onerror = () => {};
+    usePreload(src)
+      .then(result => {
+        setImageLoaded(result);
+      })
+      .catch(error => console.log("Cover image can't loaded"));
   }, []);
   return (
     <div className={`imageWrapper ${size}`}>

@@ -9,3 +9,5 @@ import "./ProfileImage";
 import "./PostSection";
 import "./CapsuleButton";
 import "./CheckBox";
+import "./TimelineCover";
+import "./TimelineHeader";

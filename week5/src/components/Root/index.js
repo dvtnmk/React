@@ -6,14 +6,15 @@ import history from "routes/history";
 
 function Root() {
   return (
-    <div>
+    <React.Fragment>
       <Router history={history}>
         <Switch>
           <NonAuthRoute />
           <AuthRoute />
+          {/* <Route  component={()=> <h1>Not Found</h1>}></Route> */}
         </Switch>
       </Router>
-    </div>
+    </React.Fragment>
   );
 }
 
