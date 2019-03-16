@@ -5,9 +5,10 @@
   object-fit: cover;
   object-position: center;
 }
+
 .imageWrapper {
-  user-select: none;
   position: relative;
+  user-select: none;
   .image {
     @extend %image;
   }
@@ -22,25 +23,26 @@
     }
   }
   .icon {
-    // padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
     position: absolute;
-    background-color: rgb(66, 66, 255);
-    right: 0 - (20%/2);
-    bottom: 0 - (20%/2);
+    right: 0 - (25%/2);
+    bottom: 0 - (25%/2);
+    background-color: #1890ff;
+    // padding: 5px;
     width: 50%;
     height: 50%;
     border-radius: 100%;
-    border: 2px solid #fff;
+    border: 2px solid #fcfcfc;
     font-size: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 @for $i from 1 through 10 {
   .imageWrapper.x#{$i} {
+    // .x1 ... x10
     width: 20px * $i;
     height: 20px * $i;
   }

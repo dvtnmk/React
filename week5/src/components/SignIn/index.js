@@ -30,7 +30,7 @@ function onSigin(Email, password) {
 
 function renderForm(inputFields) {
   return inputFields.map((props, i) => (
-    <Row key={btoa(i)}>
+    <Row key={Math.random()}>
       <Col className="col">
         <Input {...props} />
       </Col>
