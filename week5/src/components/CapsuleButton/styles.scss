@@ -1,0 +1,24 @@
+.capsuleWrapper {
+  display: flex;
+  padding: 5px;
+  background-color: #eaeaea;
+  border-radius: 50ch;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-height: 38px;
+  user-select: none;
+  margin: 0 5px;
+  &:hover {
+    filter: brightness(0.95);
+  }
+  &:active {
+    filter: brightness(0.8);
+  }
+  .icon {
+    margin-right: 5px;
+    font-size: 1.2rem;
+  }
+  .label {
+  }
+}

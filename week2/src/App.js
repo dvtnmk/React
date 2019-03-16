@@ -1,0 +1,33 @@
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import Button from "./components/Button";
+import "./App.css";
+import Counter from "./components/Counter";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  increment = () => {
+    this.setState(({ count }) => ({
+      count: count + 1
+    }));
+  };
+
+  render() {
+    const { count } = this.state;
+    console.log("Count " + this.state.count);
+    return (
+      <div className="App">
+        <Counter label={count} />
+        <Button handle={this.increment} count={count} />
+      </div>
+    );
+  }
+}
+
+export default App;
