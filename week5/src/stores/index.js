@@ -1,7 +1,11 @@
-import { createStore, combineReducers } from "redux";
-import { devToolsEnhancer } from "redux-devtools-extension";
-
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import middlewares from "./middlewares";
 import reducers from "./reducers";
-const store = createStore(combineReducers(reducers), devToolsEnhancer());
+const mw = [...middlewares];
+const store = createStore(
+  combineReducers(reducers),
+  composeWithDevTools(applyMiddleware(...mw))
+);
 
 export default store;
